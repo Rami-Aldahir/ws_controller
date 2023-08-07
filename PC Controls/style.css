@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: centre;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+section {
+    border: 1px solid #ccc;
+    padding: 20px;
+    max-width: 400px;
+    text-align: centre;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h2 {
+    margin-top: 0;
+}
+
+label {
+    display: block;
+}
+
+input, button {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="icon" href="web_img.jpg"/>
+        <title>Control Page</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="script.js" defer></script>
+    </head>
+
+    <body>
+        <section class="pc_one">
+            <h2>Touch Designer PC</h2>
+            <button id="reboot_pc_1">Reboot PC</button>
+            <button id="shutdown_pc_1">Shutdown PC</button>
+            <br><br>
+            <label for="pc_1_status" id="status_1">PC Status</label>
+            <input type="text" id="pc_1_status" value = 0 readonly>
+            <button id="ping_pc_1">Ping</button>
+            <br><br>
+            <label for="camera_1_satus">REAR Kinect</label>
+            <input type="text" id="camera_1_satus" value = 0 readonly>
+            <button id="restart_cam_1">Reset</button>
+            <br>
+            <label for="camera_2_satus">FRONT Kinect</label>
+            <input type="text" id="camera_2_satus" value = 0 readonly>
+            <button id="restart_cam_2">Reset</button>
+            <br>
+            <label for="camera_3_satus">SIDE Kinect</label>
+            <input type="text" id="camera_3_satus" value = 0 readonly>
+            <button id="restart_cam_3">Reset</button>
+        </section>
+
+        <section class="pc_two">
+            <h2>Unreal PC</h2>
+            <button id="reboot_pc_2">Reboot PC</button>
+            <button id="shutdown_pc_2">Shutdown PC</button>
+            <br><br>
+            <label for="pc_2_status">PC Status</label>
+            <input type="text" id="pc_2_status" value = 0 readonly>
+            <button id="ping_pc_2">Ping</button>
+            <br>
+            <label for="game_satus">Game Status</label>
+            <input type="text" id="game_satus" value = 0 readonly>
+        </section>
+
+        <script>
+            // SEND PINGS EVERY 30 SECONDS
+            let lastSignalTime = null;
+            function sendPingData() {
+                ws.send(JSON.stringify({"ping_1": "1"}));
+                ws.send(JSON.stringify({"ping_2": "1"}));
+            }
+    
+            function autoPressButton() {
+                let ping_1 = document.getElementById('ping_pc_1');
+                let ping_2 = document.getElementById('ping_pc_2');
+                ping_1.click();
+                ping_2.click();
+                sendPingData();
+                lastSignalTime = Date.now();
+            }
+            setInterval(autoPressButton, 30000); 
+        </script>
+
+    </body>
+    
+</html>

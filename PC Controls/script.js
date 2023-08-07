@@ -83,6 +83,15 @@ ws.addEventListener('open', (event) => {
                 pc_1_status.value = data.PC1_is_on;
             }
         }
+
+        if (data.hasOwnProperty('PC2_is_on')) {
+            const pc_2_status = document.getElementById('pc_2_status');
+            if (data.PC2_is_on === null || data.PC2_is_on === undefined) {
+                pc_2_status.value = 0
+            } else {
+                pc_2_status.value = data.PC2_is_on;
+            }
+        }
     }
 
   });

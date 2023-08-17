@@ -8,7 +8,7 @@ body {
 }
 
 section {
-    border: 1px solid #ccc;
+    border: 1px solid #5372ef;
     padding: 20px;
     max-width: 400px;
     text-align: centre;
@@ -16,7 +16,7 @@ section {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-h2 {
+h2 h4 {
     margin-top: 0;
 }
 

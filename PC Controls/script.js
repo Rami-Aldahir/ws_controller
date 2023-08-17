@@ -35,6 +35,26 @@ camera_3.addEventListener('click', (event) => {
     ws.send(JSON.stringify({"camera_3_reset":"1"}))
 })
 
+// START / STOP GAME FUNCTIONS
+let start_goal = document.getElementById('start_game_goal')
+start_goal.addEventListener('click', (event) => {
+    ws.send(JSON.stringify({"start_game_goal":"1"}))
+})
+let start_drive = document.getElementById('start_game_drive')
+start_drive.addEventListener('click', (event) => {
+    ws.send(JSON.stringify({"start_game_drive":"1"}))
+})
+let start_run = document.getElementById('start_game_run')
+start_run.addEventListener('click', (event) => {
+    ws.send(JSON.stringify({"start_game_run":"1"}))
+})
+let unload_game = document.getElementById('unload_game')
+unload_game.addEventListener('click', (event) => {
+    ws.send(JSON.stringify({"unload_game":"1"}))
+})
+
+
+
 ws.addEventListener('open', (event) => {
     console.log('Socket connection open');
     ws.send('pong');
@@ -90,6 +110,51 @@ ws.addEventListener('open', (event) => {
                 pc_2_status.value = 0
             } else {
                 pc_2_status.value = data.PC2_is_on;
+            }
+        }
+
+        // WRITE CURRENT ACTIVE GAME
+        if (data.hasOwnProperty('goal_active')) {
+            const goal_loaded = document.getElementById('goal_loaded');
+            if (data.goal_active === null || data.goal_active === undefined) {
+                goal_loaded.value = 0
+            } else {
+                goal_loaded.value = "Active";
+                drive_loaded.value = "0";
+                run_loaded.value = "0";
+            }
+        }
+
+        if (data.hasOwnProperty('drive_active')) {
+            const drive_loaded = document.getElementById('drive_loaded');
+            if (data.drive_active === null || data.drive_active === undefined) {
+                drive_loaded.value = 0
+            } else {
+                goal_loaded.value = "0";
+                drive_loaded.value = "Active";
+                run_loaded.value = "0";
+            }
+        }
+
+        if (data.hasOwnProperty('run_active')) {
+            const run_loaded = document.getElementById('run_loaded');
+            if (data.run_active === null || data.run_active === undefined) {
+                run_loaded.value = 0
+            } else {
+                goal_loaded.value = "0";
+                drive_loaded.value = "0";
+                run_loaded.value = "Active";
+            }
+        }
+
+        if (data.hasOwnProperty('games_unloaded')) {
+            const unload_game = document.getElementById('unload_game');
+            if (data.games_unloaded === null || data.games_unloaded === undefined) {
+                unload_game.value = 0
+            } else {
+                goal_loaded.value = "0";
+                drive_loaded.value = "0";
+                run_loaded.value = "0";
             }
         }
     }

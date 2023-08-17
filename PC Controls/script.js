@@ -119,7 +119,7 @@ ws.addEventListener('open', (event) => {
             if (data.goal_active === null || data.goal_active === undefined) {
                 goal_loaded.value = 0
             } else {
-                goal_loaded.value = "Active";
+                goal_loaded.value = "Loaded";
                 drive_loaded.value = "0";
                 run_loaded.value = "0";
             }
@@ -131,7 +131,7 @@ ws.addEventListener('open', (event) => {
                 drive_loaded.value = 0
             } else {
                 goal_loaded.value = "0";
-                drive_loaded.value = "Active";
+                drive_loaded.value = "Loaded";
                 run_loaded.value = "0";
             }
         }
@@ -143,7 +143,7 @@ ws.addEventListener('open', (event) => {
             } else {
                 goal_loaded.value = "0";
                 drive_loaded.value = "0";
-                run_loaded.value = "Active";
+                run_loaded.value = "Loaded";
             }
         }
 

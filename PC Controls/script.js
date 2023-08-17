@@ -68,7 +68,7 @@ ws.addEventListener('open', (event) => {
         return;
       }
       let data = JSON.parse(message.data);
-        // WRITE CAMERA STATUS
+        // WRITE CAMERA STATUS ON RESET
         if (data.hasOwnProperty('rear_kinect_active')) {
             const camera_1_satus = document.getElementById('camera_1_satus');
             if (data.rear_kinect_active === null || data.rear_kinect_active === undefined){
@@ -93,6 +93,33 @@ ws.addEventListener('open', (event) => {
                 camera_3_satus.value = data.side_kinect_active;
             }
         }
+
+        // WRITE CAMERA STATUS ON PING
+        if (data.hasOwnProperty('rear_kinect_on')) {
+            const camera_1_satus = document.getElementById('camera_1_satus');
+            if (data.rear_kinect_on === null || data.rear_kinect_on === undefined){
+                camera_1_satus.value = 0;
+            } else {
+                camera_1_satus.value = data.rear_kinect_on;
+            }
+        }
+        if (data.hasOwnProperty('front_kinect_on')) {
+            const camera_2_satus = document.getElementById('camera_2_satus');
+            if (data.front_kinect_on === null || data.front_kinect_on === undefined){
+                camera_2_satus.value = 0;
+            } else {
+                camera_2_satus.value = data.front_kinect_on;
+            }
+        }
+        if (data.hasOwnProperty('side_kinect_on')) {
+            const camera_3_satus = document.getElementById('camera_3_satus');
+            if (data.side_kinect_on === null || data.side_kinect_on === undefined){
+                camera_3_satus.value = 0;
+            } else {
+                camera_3_satus.value = data.side_kinect_on;
+            }
+        }
+        
 
         // WRITE PC STATUS
         if (data.hasOwnProperty('PC1_is_on')) {

@@ -33,18 +33,21 @@
             <br><br>
             <h4>Start Games</h4>
             <button id="unload_game">Unload Game</button>
+            <button id="cal_floor">Calibrate Floor</button>
             <br><br>
             <label for="goal_loaded">GOAL</label>
-            <input type="text" id="goal_loaded" readonly>
+            <input type="text" id="goal_loaded" value = 0 readonly>
             <button id="start_game_goal">Load</button>
+            <button id="cal_game_goal">Calibrate</button>
             <br>
             <label for="drive_loaded">DRIVE</label>
-            <input type="text" id="drive_loaded" readonly> 
+            <input type="text" id="drive_loaded" value = 0 readonly> 
             <button id="start_game_drive">Load</button>
             <br>
             <label for="run_loaded">RUN</label>
-            <input type="text" id="run_loaded" readonly>
+            <input type="text" id="run_loaded" value = 0 readonly>
             <button id="start_game_run">Load</button>
+            <button id="cal_game_run">Calibrate</button>
 
         </section>
 
@@ -72,7 +75,7 @@
         </section> -->
 
         <script>
-            // SEND PINGS EVERY 30 SECONDS
+            // SEND PINGS EVERY 10 SECONDS
             let lastSignalTime = null;
             function sendPingData() {
                 ws.send(JSON.stringify({"ping_1": "1"}));

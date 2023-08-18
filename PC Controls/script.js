@@ -35,7 +35,7 @@ camera_3.addEventListener('click', (event) => {
     ws.send(JSON.stringify({"camera_3_reset":"1"}))
 })
 
-// START / STOP GAME FUNCTIONS
+// START-STOP GAME FUNCTIONS
 let start_goal = document.getElementById('start_game_goal')
 start_goal.addEventListener('click', (event) => {
     ws.send(JSON.stringify({"start_game_goal":"1"}))
@@ -51,6 +51,20 @@ start_run.addEventListener('click', (event) => {
 let unload_game = document.getElementById('unload_game')
 unload_game.addEventListener('click', (event) => {
     ws.send(JSON.stringify({"unload_game":"1"}))
+})
+
+// CALIBRATE GAME FUNCTIONS
+let cal_floor = document.getElementById('cal_floor')
+cal_floor.addEventListener('click', (event) => {
+    ws.send(JSON.stringify({"cal_floor":"1"}))
+})
+let cal_goal = document.getElementById('cal_game_goal')
+cal_goal.addEventListener('click', (event) => {
+    ws.send(JSON.stringify({"cal_game_goal":"1"}))
+})
+let cal_run = document.getElementById('cal_game_run')
+cal_run.addEventListener('click', (event) => {
+    ws.send(JSON.stringify({"cal_game_run":"1"}))
 })
 
 

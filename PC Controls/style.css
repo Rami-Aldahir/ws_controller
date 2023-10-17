@@ -18,9 +18,9 @@ body {
 .navbar a {
     display: inline-block;
     color: white;
-    padding: 16px 50px;
+    padding: 16px 20px;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 22px;
 }
 
 .navbar a:hover {
@@ -30,12 +30,12 @@ body {
 
 section {
     border: 1px solid #5372ef;
-    padding: 30px;
-    width: 300px;
+    padding: 20px;
+    max-width: 100%;
     text-align: center;
     margin: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    font-size: 20px;
+    font-size: 18px;
 }
 
 h2, h4 {
@@ -44,12 +44,29 @@ h2, h4 {
 
 label {
     display: block;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 input, button {
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: 16px;
     padding: 10px 20px;
+}
+
+
+@media (max-width: 768px) {
+    section {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input, button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 }

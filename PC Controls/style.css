@@ -6,13 +6,17 @@ body {
     min-height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
+    margin-top: 60px;
 }
 
 .navbar {
     background-color: #333;
-    overflow: hidden;
-    width: 100%;
     text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
 }
 
 .navbar a {

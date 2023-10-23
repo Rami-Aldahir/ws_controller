@@ -21,6 +21,16 @@ shutdown_2.addEventListener('click', (event) => {
     ws.send(JSON.stringify({"shutdown_pc_2":"1"}))
 })
 
+// POWER CYCLE FUNCTIONS
+powercycle_1 = document.getElementById('powercycle_pc_1')
+powercycle_1.addEventListener('click', (event) => {
+    ws.send(JSON.stringify({"powercycle_pc_1":"1"}))
+})
+powercycle_2 = document.getElementById('powercycle_pc_2')
+powercycle_2.addEventListener('click', (event) => {
+    ws.send(JSON.stringify({"powercycle_pc_2":"1"}))
+})
+
 // CAMERAS FUNCTIONS
 let camera_1 = document.getElementById('restart_cam_1')
 camera_1.addEventListener('click', (event) => {

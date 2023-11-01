@@ -11,6 +11,11 @@ reboot_2.addEventListener('click', (event) => {
     ws.send(JSON.stringify({"reboot_pc_2":"1"}))
 })
 
+let reboot_3 = document.getElementById('reboot_pc_3');
+reboot_3.addEventListener('click', (event) => {
+    ws.send(JSON.stringify({"reboot_pc_3": "1"}));
+});
+
 // SHUTDOWN PC FUNCTIONS
 shutdown_1 = document.getElementById('shutdown_pc_1')
 shutdown_1.addEventListener('click', (event) => {
@@ -164,6 +169,15 @@ ws.addEventListener('open', (event) => {
             }
         }
 
+        if (data.hasOwnProperty('PC3_is_on')) {
+            const pc_3_status = document.getElementById('pc_3_status');
+            if (data.PC3_is_on === null || data.PC3_is_on === undefined) {
+                pc_3_status.value = 0
+            } else {
+                pc_3_status.value = data.PC3_is_on;
+            }
+        }
+
         // WRITE CURRENT ACTIVE GAME
         if (data.hasOwnProperty('goal_active')) {
             const goal_loaded = document.getElementById('goal_loaded');
@@ -208,6 +222,23 @@ ws.addEventListener('open', (event) => {
                 run_loaded.value = "0";
             }
         }
+
+        if (goal_loaded.value === "Loaded") {
+            game_status.value = "GOAL";
+        } else {
+            game_status.value = "None";
+        }
+        if (drive_loaded.value === "Loaded") {
+            game_status.value = "DRIVE";
+        } else {
+            game_status.value = "None";
+        }
+        if (run_loaded.value === "Loaded") {
+            game_status.value = "RUN";
+        } else {
+            game_status.value = "None";
+        }
+
     }
 
   });

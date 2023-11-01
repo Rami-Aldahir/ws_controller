@@ -15,6 +15,7 @@
     <div class="navbar">
         <a href="#pc_one">PC1</a>
         <a href="#pc_two">PC2</a>
+        <a href="#pc_three">PC3</a>
     </div>
 
     <!-- PC1 section -->
@@ -70,8 +71,18 @@
             <input type="text" id="pc_2_status" value = 0 readonly>
             <button id="ping_pc_2">Ping</button>
             <br>
-            <label for="game_satus">Game Status</label>
-            <input type="text" id="game_satus" value = 0 readonly>
+            <label for="game_satus">Current Game</label>
+            <input type="text" id="game_satus" value = None readonly>
+    </section>
+
+    <!-- PC3 section -->
+    <section class="pc_three" id="pc_three">
+        <h2>Login Screen</h2>
+        <button id="reboot_pc_3">Reboot PC</button>
+        <br><br>
+        <label for="pc_3_status">PC Status</label>
+        <input type="text" id="pc_3_status" value="0" readonly>
+        <button id="ping_pc_3">Ping</button>
     </section>
 
     <script>
@@ -80,13 +91,16 @@
         function sendPingData() {
             ws.send(JSON.stringify({"ping_1": "1"}));
             ws.send(JSON.stringify({"ping_2": "1"}));
+            ws.send(JSON.stringify({"ping_3": "1"}));
         }
 
         function autoPressButton() {
             let ping_1 = document.getElementById('ping_pc_1');
             let ping_2 = document.getElementById('ping_pc_2');
+            let ping_3 = document.getElementById('ping_pc_3');
             ping_1.click();
             ping_2.click();
+            ping_3.click();
             sendPingData();
             lastSignalTime = Date.now();
         }

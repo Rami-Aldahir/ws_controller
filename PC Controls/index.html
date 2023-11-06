@@ -16,6 +16,7 @@
         <a href="#pc_one">PC1</a>
         <a href="#pc_two">PC2</a>
         <a href="#pc_three">PC3</a>
+        <a href="#pc_four">PC4</a>
     </div>
 
     <!-- PC1 section -->
@@ -85,6 +86,16 @@
         <button id="ping_pc_3">Ping</button>
     </section>
 
+    <!-- PC4 section -->
+    <section class="pc_four" id="pc_four">
+        <h2>Corner Screen</h2>
+        <button id="reboot_pc_4">Reboot PC</button>
+        <br><br>
+        <label for="pc_4_status">PC Status</label>
+        <input type="text" id="pc_4_status" value="0" readonly>
+        <button id="ping_pc_4">Ping</button>
+    </section>
+
     <script>
         // SEND PINGS EVERY 10 SECONDS
         let lastSignalTime = null;
@@ -92,15 +103,18 @@
             ws.send(JSON.stringify({"ping_1": "1"}));
             ws.send(JSON.stringify({"ping_2": "1"}));
             ws.send(JSON.stringify({"ping_3": "1"}));
+            ws.send(JSON.stringify({"ping_4": "1"}));
         }
 
         function autoPressButton() {
             let ping_1 = document.getElementById('ping_pc_1');
             let ping_2 = document.getElementById('ping_pc_2');
             let ping_3 = document.getElementById('ping_pc_3');
+            let ping_4 = document.getElementById('ping_pc_4');
             ping_1.click();
             ping_2.click();
             ping_3.click();
+            ping_4.click();
             sendPingData();
             lastSignalTime = Date.now();
         }

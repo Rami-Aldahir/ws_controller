@@ -10,10 +10,13 @@ let reboot_2 = document.getElementById('reboot_pc_2')
 reboot_2.addEventListener('click', (event) => {
     ws.send(JSON.stringify({"reboot_pc_2":"1"}))
 })
-
 let reboot_3 = document.getElementById('reboot_pc_3');
 reboot_3.addEventListener('click', (event) => {
     ws.send(JSON.stringify({"reboot_pc_3": "1"}));
+});
+let reboot_4 = document.getElementById('reboot_pc_4');
+reboot_4.addEventListener('click', (event) => {
+    ws.send(JSON.stringify({"reboot_pc_4": "1"}));
 });
 
 // SHUTDOWN PC FUNCTIONS
@@ -159,7 +162,6 @@ ws.addEventListener('open', (event) => {
                 pc_1_status.value = data.PC1_is_on;
             }
         }
-
         if (data.hasOwnProperty('PC2_is_on')) {
             const pc_2_status = document.getElementById('pc_2_status');
             if (data.PC2_is_on === null || data.PC2_is_on === undefined) {
@@ -168,13 +170,20 @@ ws.addEventListener('open', (event) => {
                 pc_2_status.value = data.PC2_is_on;
             }
         }
-
         if (data.hasOwnProperty('PC3_is_on')) {
             const pc_3_status = document.getElementById('pc_3_status');
             if (data.PC3_is_on === null || data.PC3_is_on === undefined) {
                 pc_3_status.value = 0
             } else {
                 pc_3_status.value = data.PC3_is_on;
+            }
+        }
+        if (data.hasOwnProperty('PC4_is_on')) {
+            const pc_4_status = document.getElementById('pc_4_status');
+            if (data.PC4_is_on === null || data.PC4_is_on === undefined) {
+                pc_4_status.value = 0
+            } else {
+                pc_4_status.value = data.PC4_is_on;
             }
         }
 

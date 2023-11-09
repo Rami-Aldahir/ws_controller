@@ -85,7 +85,11 @@ cal_run.addEventListener('click', (event) => {
     ws.send(JSON.stringify({"cal_game_run":"1"}))
 })
 
-
+// SWITCH PC VIDEO FEED
+let switch_feed = document.getElementById('switch_feed')
+switch_feed.addEventListener('click', (event) => {
+    ws.send(JSON.stringify({"switch_feed":"1"}))
+})
 
 ws.addEventListener('open', (event) => {
     console.log('Socket connection open');

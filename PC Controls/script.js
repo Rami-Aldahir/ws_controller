@@ -196,6 +196,7 @@ ws.addEventListener('open', (event) => {
                 goal_loaded.value = "Loaded";
                 drive_loaded.value = "0";
                 run_loaded.value = "0";
+                active_game.value = "GOAL"
             }
         }
 
@@ -207,6 +208,7 @@ ws.addEventListener('open', (event) => {
                 goal_loaded.value = "0";
                 drive_loaded.value = "Loaded";
                 run_loaded.value = "0";
+                active_game.value = "DRIVE"
             }
         }
 
@@ -218,6 +220,7 @@ ws.addEventListener('open', (event) => {
                 goal_loaded.value = "0";
                 drive_loaded.value = "0";
                 run_loaded.value = "Loaded";
+                active_game.value = "RUN"
             }
         }
 
@@ -229,25 +232,9 @@ ws.addEventListener('open', (event) => {
                 goal_loaded.value = "0";
                 drive_loaded.value = "0";
                 run_loaded.value = "0";
+                active_game.value = "None"
             }
         }
-
-        if (goal_loaded.value === "Loaded") {
-            game_status.value = "GOAL";
-        } else {
-            game_status.value = "None";
-        }
-        if (drive_loaded.value === "Loaded") {
-            game_status.value = "DRIVE";
-        } else {
-            game_status.value = "None";
-        }
-        if (run_loaded.value === "Loaded") {
-            game_status.value = "RUN";
-        } else {
-            game_status.value = "None";
-        }
-
     }
 
   });

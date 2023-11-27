@@ -1,3 +1,4 @@
+// WEBSOCKETS WOOOOO
 let ws = new WebSocket('wss://test-server-app.herokuapp.com:443');
 
 
@@ -17,6 +18,10 @@ reboot_3.addEventListener('click', (event) => {
 let reboot_4 = document.getElementById('reboot_pc_4');
 reboot_4.addEventListener('click', (event) => {
     ws.send(JSON.stringify({"reboot_pc_4": "1"}));
+});
+let reboot_5 = document.getElementById('reboot_pc_5');
+reboot_4.addEventListener('click', (event) => {
+    ws.send(JSON.stringify({"reboot_pc_5": "1"}));
 });
 
 // SHUTDOWN PC FUNCTIONS
@@ -188,6 +193,14 @@ ws.addEventListener('open', (event) => {
                 pc_4_status.value = 0
             } else {
                 pc_4_status.value = data.PC4_is_on;
+            }
+        }
+        if (data.hasOwnProperty('PC5_is_on')) {
+            const pc_5_status = document.getElementById('pc_5_status');
+            if (data.PC5_is_on === null || data.PC5_is_on === undefined) {
+                pc_5_status.value = 0
+            } else {
+                pc_5_status.value = data.PC5_is_on;
             }
         }
 

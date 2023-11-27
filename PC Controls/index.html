@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +12,11 @@
 <body>
     <!-- Navbar section -->
     <div class="navbar">
-        <a href="#pc_one">PC1</a>
-        <a href="#pc_two">PC2</a>
-        <a href="#pc_three">PC3</a>
-        <a href="#pc_four">PC4</a>
+        <a href="#pc_one">TouchDesigner</a>
+        <a href="#pc_two">Unreal</a>
+        <a href="#pc_three">Login Screen</a>
+        <a href="#pc_four">Corner Screen</a>
+        <a href="#pc_five">Selfie Booth</a>
     </div>
 
     <!-- PC1 section -->
@@ -99,6 +98,16 @@
         <button id="switch_feed">Switch Feed</button>
     </section>
 
+    <!-- PC5 section -->
+    <section class="pc_five" id="pc_five">
+        <h2>Selfie Booth</h2>
+        <button id="reboot_pc_5">Reboot PC</button>
+        <br><br>
+        <label for="pc_5_status">PC Status</label>
+        <input type="text" id="pc_4_status" value="0" readonly>
+        <button id="ping_pc_4">Ping</button><br>
+    </section>
+
     <script>
         // SEND PINGS EVERY 10 SECONDS
         let lastSignalTime = null;
@@ -107,6 +116,7 @@
             ws.send(JSON.stringify({"ping_2": "1"}));
             ws.send(JSON.stringify({"ping_3": "1"}));
             ws.send(JSON.stringify({"ping_4": "1"}));
+            ws.send(JSON.stringify({"ping_5": "1"}));
         }
 
         function autoPressButton() {
@@ -114,10 +124,12 @@
             let ping_2 = document.getElementById('ping_pc_2');
             let ping_3 = document.getElementById('ping_pc_3');
             let ping_4 = document.getElementById('ping_pc_4');
+            let ping_5 = document.getElementById('ping_pc_5');
             ping_1.click();
             ping_2.click();
             ping_3.click();
             ping_4.click();
+            ping_5.click();
             sendPingData();
             lastSignalTime = Date.now();
         }

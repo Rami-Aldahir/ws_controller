@@ -20,7 +20,7 @@ reboot_4.addEventListener('click', (event) => {
     ws.send(JSON.stringify({"reboot_pc_4": "1"}));
 });
 let reboot_5 = document.getElementById('reboot_pc_5');
-reboot_4.addEventListener('click', (event) => {
+reboot_5.addEventListener('click', (event) => {
     ws.send(JSON.stringify({"reboot_pc_5": "1"}));
 });
 
